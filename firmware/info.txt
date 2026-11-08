@@ -1,0 +1,3 @@
+contagiri_vespa.ino is the first version 
+you should use vespa_tachometer.ino
+because is better and written in english
