@@ -38,3 +38,11 @@ and then you could connect the ESP32 to your phone and you can send packages via
 i have made (or i think is it) a preatty easy interface: for swiching interface kmh-rpm you have to press raplidy the button, and then if you want to see how many rpm it can get you have to press the button for at lest 800ms so 0.8 seconds
 
 you can personalize your code 
+
+## Gallery
+<img width="571" height="768" alt="Screenshot 2026-11-07 213111" src="https://github.com/user-attachments/assets/8022bb42-8e5e-49b2-aae8-aa276b85060f" />
+<img width="1107" height="695" alt="Screenshot 2026-11-03 165344" src="https://github.com/user-attachments/assets/05d3ccbc-9843-4b13-b07d-058ff9905793" />
+<img width="169" height="209" alt="Screenshot 2026-11-03 164758" src="https://github.com/user-attachments/assets/34c7a7b1-f465-4e9a-b33a-d4092ea428e3" />
+<img width="918" height="870" alt="Screenshot 2026-11-08 102136" src="https://github.com/user-attachments/assets/206e76f3-320c-4f9c-b943-5d03b5ffe715" />
+
+## Things that you need:
