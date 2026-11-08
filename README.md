@@ -46,3 +46,26 @@ you can personalize your code
 <img width="918" height="870" alt="Screenshot 2026-11-08 102136" src="https://github.com/user-attachments/assets/206e76f3-320c-4f9c-b943-5d03b5ffe715" />
 
 ## Things that you need:
+
+| # | Component | Qty | Why it is used | Amazon link | Approx. price (USD) | Notes |
+|---|-----------|-----|----------------|-------------|---------------------|-------|
+| 1 | ESP32 dev board (ESP-WROOM-32, 38-pin) | 1 | Main microcontroller: counts ignition pulses to compute RPM, drives the display and receives the speed over Bluetooth Classic. | [HiLetgo ESP-WROOM-32 ESP32 dev board](https://www.amazon.com/ESP-WROOM-32-Development-Dual-Mode-Microcontroller-Integrated/dp/B0FRD82Q54) | ~$10 | Must be the **original ESP32** (Bluetooth Classic). ESP32-S2/S3/C3/C6 will **not** work. Choose the **1-piece** option on the listing. |
+| 2 | 1.3" OLED display, 128x64, I2C (SH1106) | 1 | Shows the RPM / km/h, the bar graph and the max value. | [1.3" I2C OLED SH1106 128x64 (1 pc, with jumper wires)](https://us.amazon.com/Display-Breadboard-Multicolored-Compatible-Raspberry/dp/B0HFSCMGWD) | ~$8 | 3.3V compatible. Check the pin order printed on the module (GND/VCC/SCL/SDA) before powering. The code uses the SH1106 driver (U8g2). |
+| 3 | AC optocoupler isolation module (1 channel, 220V AC detect) | 1 | Galvanically isolates the high-voltage ignition signal and turns it into a clean 3.3V logic pulse for the ESP32 (output goes low while the input is active). | [2-pack 1-bit AC optocoupler isolation module](https://www.amazon.com/Optocoupler-Isolation-Module-Voltage-Adaptive/dp/B0G642W1RJ) | ~$7 | Sold as a 220V AC detector; check the real maximum input voltage of the board you receive (this build uses a module rated for about 300V). 2-pack gives a spare. |
+| 4 | 15 kΩ resistor, 2 W, metal film | 2 | Series current-limiting resistors on the high-voltage input side of the optocoupler module. | [Set of 15 pcs 15K ohm 2W 1% metal film resistors](https://www.amazon.com/Pieces-Tolerance-Metal-Film-Resistor/dp/B00VQSNAUM) | ~$8 | Only 2 are needed; the rest are spares. 2 W rating is needed for the high-voltage side. |
+| 5 | 100 nF (0.1 µF) capacitor, 400 V film | 1 | Capacitor on the high-voltage side, rated for the ignition pulses. | [10 pcs 104 400V 0.1uF polypropylene film capacitors](https://www.amazon.com/10pcs-0-1uF-Metallized-Polypropylene-Capacitor/dp/B0FHDYPS8F) | ~$6 | Must be rated **400 V or more**. The spares can also be used across the push button to reduce electrical noise. |
+| 6 | 10 Ω resistor, 1/4 W | 1 | Low-value series resistor in the sensing path. | [Pack of 30 resistors, 10 Ω – 1 MΩ, 1/4W 1%](https://www.amazon.com/10-1M-Resistors-Metal-Resistor-Assortment/dp/B0CLV1YXH8) | ~$6 | The pack contains the 10 Ω value plus many others. |
+| 7 | 16 mm metal push button, momentary, waterproof (stainless steel) | 1 | Short press: switch between RPM and km/h view. Long press (> 0.8 s): reset the max values. Wired between GPIO25 and GND (internal pull-up, no resistor needed). | [16mm IP65 waterproof metal momentary push button (pack of 2)](https://www.amazon.com/Momentary-Button-Waterproof-Stainless-Terminals/dp/B0F62S67RS) | ~$9 | Racing-style stainless steel button, normally open (no polarity), screw terminals. Needs a **16 mm mounting hole** (head about 17.8 mm), so make that hole in the 3D printed part. Pack of 2 gives a spare. |
+| 8 | Breadboard + jumper wires kit | 1 | Prototyping and wiring everything without soldering. | [830 + 400 tie-point breadboards with jumper wires kit](https://www.amazon.com/ALLECIN-Breadboard-Jumper-Wires-Kit/dp/B0C1VDKPW2) | ~$9 | Includes two breadboards and about 200 jumper wires. |
+| 9 | 3D printed parts | – | Enclosure and mounting parts for the display, the ESP32 and the button. | – (custom, printed at home or by a print service) | ~$10 | Estimated cost. |
+
+**Estimated total: about $73** (before shipping and tax).
+
+### Not included
+
+- The Vespa
+- An Android phone (Bluetooth Classic is not supported on iPhone)
+- A power source for the ESP32: a USB power bank, or a 12V to 5V buck converter if the bike has a battery
+- A USB cable with data lines for programming the ESP32
+- Basic tools (soldering iron, wire cutters, etc.)
+
